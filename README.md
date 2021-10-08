@@ -1,4 +1,4 @@
-# EECS280-Note
+# EECS 280
 
 ## Machine Model/Procedural Abstraction
 
@@ -84,7 +84,7 @@ Type:
 
 
 
-考点：
+### 考点：
 
 - Variable 不等于object
 
@@ -111,7 +111,19 @@ Type:
 
   - Lecture 2，45mins左右
 
-## Pointers
+## Object kinds
+
+- Atomic
+  - Primitive
+  - int, doublt, char, etc
+  - Pointer
+- Arrays (homogeneous)
+  - A contiguous sequence of objects of the ***same type***
+- Class-type (heterogeneous)
+  - A compound object made up of member subobjects
+  - struct/class
+
+## Pointers & Arrays
 
 Object to store address: 
 
@@ -127,7 +139,60 @@ get the object a pointer points to use * operator.
 
 - 不同data之间的pointer type不能相等：compiler error
 
-## Arrays
+#### Reference and Pointer
+
+<table>
+    <tr>
+    	<th>Reference</th>
+        <th>Pointers</th>
+    </tr>
+    <tr>
+    	<td>An alias for an object</td>
+        <td>Stores address of an object</td>
+    </tr>
+    <tr>
+    	<td>Cannot rebind to another object</td>
+        <td>Can change where it points</td>
+    </tr>
+    <tr>
+    	<td>Cannot refer to NULL</td>
+        <td>Can point to NULL</td>
+    </tr>
+</table>
+
+#### Array
+
+- collection of objects
+
+- fixed size
+
+- index always starts at 0
+
+- occupy a contiguous chunk of memory
+
+- ```c++
+  int arr[4] = {initializer list};
+  ```
+
+#### Array Decay
+
+- when you try to read the value of the whole array
+  - it decays into a pointer to its first element
+  - doesn't apply for "*" or "[]"
+  - doesn't apply if array appears to left of "="
+
+#### Pointer Arithmetic
+
+#### Array Indexing
+
+- ptr[i] is defined as *(ptr + i)
+
+### 考点：
+
+- array的size在init的时候需要是一个已经设置好的值：hardcoded/const when using variable，不能是未知的
+- array decay
+  - Lecture 4, page 19
+  - 什么时候会出现array decay
 
 ## Strings, Streams and I/O
 
